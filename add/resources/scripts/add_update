@@ -1,0 +1,59 @@
+#!/usr/bin/env python
+
+import sys
+import os.path
+dev_path = os.path.abspath(os.path.join(os.path.dirname(__name__), '..', '..', '..'))
+sys.path.insert(0, dev_path)
+
+import argparse
+
+import add.config.aws
+import add.config.log
+import add.aws
+
+description = "Route a Route53 zone with this machine or network's public " \
+              "IP address."
+
+parser = argparse.ArgumentParser(description=description)
+
+parser.add_argument('-d', '--domain', 
+                    default=(add.config.aws.USER_DOMAIN or ''),
+                    help='Domain name')
+
+parser.add_argument('-z', '--zone_id', 
+                    default=(add.config.aws.ZONE_ID or ''),
+                    help='Zone ID')
+
+parser.add_argument('-a', '--access-key', 
+                    default=(add.config.aws.ACCESS_KEY_ID or ''),
+                    help='Access-key ID')
+
+parser.add_argument('-s', '--secret-key', 
+                    default=(add.config.aws.SECRET_ACCESS_KEY or ''),
+                    help='Secret access-key')
+
+args = parser.parse_args()
+
+if not args.domain:
+    print("Domain not given, or not available via ADD_DOMAIN. Please provide.")
+    sys.exit(1)
+
+if not args.zone_id:
+    print("Zone-ID not given, or not available via ADD_ZONE_ID. Please "
+          "provide.")
+    
+    sys.exit(1)
+
+if not args.access_key:
+    print("Access-key not given, or not available via ADD_ACCESS_KEY_ID. "
+          "Please provide.")
+
+    sys.exit(1)
+
+if not args.secret_key:
+    print("Domain not given, or not available via ADD_SECRET_ACCESS_KEY. "
+          "Please provide.")
+    
+    sys.exit(1)
+
+add.aws.update_arecord(args.domain, args.zone_id, args.access_key, args.secret_key)
