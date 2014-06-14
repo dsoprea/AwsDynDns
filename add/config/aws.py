@@ -8,7 +8,4 @@ SECRET_ACCESS_KEY = os.environ.get('ADD_SECRET_ACCESS_KEY')
 
 OLD_TTL = int(os.environ.get('ADD_OLD_TTL', '60'))
 NEW_TTL = int(os.environ.get('ADD_NEW_TTL', '60'))
-AWS_DEBUG = bool(int(os.environ.get('ADD_AWS_DEBUG', '0')))
-
-_AWS_LOGLEVEL = logging.DEBUG if AWS_DEBUG else logging.WARNING
-logging.getLogger('boto').setLevel(_AWS_LOGLEVEL)
+AWS_IS_DEBUG = bool(int(os.environ.get('ADD_AWS_DEBUG', '0')))
