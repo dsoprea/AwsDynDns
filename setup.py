@@ -5,6 +5,8 @@ import add
 
 app_path = os.path.dirname(add.__file__)
 
+# TODO(dustin): We still need to update crontab.
+
 with open(os.path.join(app_path, 'resources', 'README.md')) as f:
       long_description = f.read()
 
