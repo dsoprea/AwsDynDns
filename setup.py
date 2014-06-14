@@ -14,7 +14,7 @@ with open(os.path.join(app_path, 'resources', 'requirements.txt')) as f:
       install_requires = map(lambda s: s.strip(), f)
 
 setuptools.setup(
-      name='awsdyndns',
+      name='awsdd',
       version=add.__version__,
       description="An AWS (Route53)-based dynamic DNS client.",
       long_description=long_description,
