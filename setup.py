@@ -34,6 +34,6 @@ setuptools.setup(
                     'resources/requirements.txt'],
       },
       scripts=[
-            'rpipe/resources/scripts/add_update',
+            'add/resources/scripts/add_update',
       ],
 )
