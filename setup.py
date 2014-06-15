@@ -7,8 +7,11 @@ app_path = os.path.dirname(add.__file__)
 
 # TODO(dustin): We still need to update crontab.
 
-with open(os.path.join(app_path, 'resources', 'README.md')) as f:
-      long_description = f.read()
+description = "An AWS (Route53)-based dynamic DNS client."
+long_description = description
+
+#with open(os.path.join(app_path, 'resources', 'README.md')) as f:
+#      long_description = f.read()
 
 with open(os.path.join(app_path, 'resources', 'requirements.txt')) as f:
       install_requires = map(lambda s: s.strip(), f)
@@ -16,7 +19,7 @@ with open(os.path.join(app_path, 'resources', 'requirements.txt')) as f:
 setuptools.setup(
       name='awsdd',
       version=add.__version__,
-      description="An AWS (Route53)-based dynamic DNS client.",
+      description=description,
       long_description=long_description,
       classifiers=[],
       keywords='aws r53 route53 boto dyndns dns client',
