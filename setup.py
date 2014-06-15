@@ -30,7 +30,8 @@ setuptools.setup(
       install_requires=install_requires,
       package_data={
             'add': ['resources/scripts/*', 
-                    'resources/*'],
+                    'resources/README.rst',
+                    'resources/requirements.txt'],
       },
       scripts=[
             'add/resources/scripts/add_update',
