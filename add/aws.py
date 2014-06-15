@@ -9,8 +9,6 @@ import add.config.general
 
 _logger = logging.getLogger(__name__)
 
-# TODO(dustin): Configure console logging.
-
 def update_arecord(domain_name, zone_id, access_key, secret_key):
     _logger.debug("Updating DNS for domain [%s].", domain_name)
 
