@@ -2,7 +2,7 @@
 
 import sys
 import os.path
-dev_path = os.path.abspath(os.path.join(os.path.dirname(__name__), '..', '..', '..'))
+dev_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 sys.path.insert(0, dev_path)
 
 import argparse
