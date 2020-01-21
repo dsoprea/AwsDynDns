@@ -5,3 +5,6 @@
 /awsdd.egg-info/
 /build/
 /dist/
+
+*.pyc
+
